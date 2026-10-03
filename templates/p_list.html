@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>题目列表 - GRAB</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>题目列表</h1>
+        <article>
+            <form action="/api/s/grab" method="post">
+                <span>抓取题目：</span>
+                <input name="pids" type="text" placeholder="输入题目编号，空格分隔">
+                <button type="submit">提交</button>
+            </form>
+        </article>
+        <article>
+            {% if qtags %}
+            <div>
+            {{ qtags | safe }}
+            </div>
+            <a href="?">清空</a>
+            <details open>
+            {% else %}
+            <details>
+            {% endif %}
+                <summary>标签列表</summary>
+                {{ tags | safe }}
+            </details>
+            <script>
+                document.querySelectorAll(".tag").forEach(e=>{
+                    e.addEventListener("click",()=>{
+                        let params=new URLSearchParams(location.search);
+                        let tag=e.innerText;
+                        if(params.has("t",tag)){
+                            params.delete("t",tag);
+                        }else{
+                            params.append("t",tag);
+                        }
+                        location.search="?"+params.toString();
+                    });
+                });
+            </script>
+        </article>
+        <article>
+            <span>高级标签搜索</span>
+            <form action="/api/p/search" method="post">
+                <input name="text" type="text" placeholder="输入描述">
+                <button type="submit">提交</button>
+            </form>
+        </article>
+        <article>
+            {% for prob in probs %}
+            <div class="item">
+                <span>{{ prob.pid }}. </span>
+                <a href="/p/{{ prob.pid }}">{{ prob.title }}</a>
+            </div>
+            {% endfor %}
+        </article>
+    </body>
+</html>

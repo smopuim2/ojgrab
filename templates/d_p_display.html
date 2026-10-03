@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>{{ title }} - GRAB</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>{{ title }}&emsp;<small><a href="/p/{{ pid }}">题目</a></small>&emsp;<small><a href="/d/new?c=%5B%23{{ pid }}%23%5D">追问</a></small></h1>
+        <article>
+            <details>
+                <summary>切入点</summary>
+                {{ entry | safe }}
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary>题解</summary>
+                {{ solution | safe }}
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary>代码</summary>
+                <pre><code>{{ code }}</code></pre>
+            </details>
+        </article>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+        <script src="/static/render-math.js"></script>
+        <script src="/static/tags.js"></script>
+    </body>
+</html>

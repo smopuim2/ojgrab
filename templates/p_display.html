@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>{{ title }} - GRAB</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>{{ title }}&emsp;<small><a href="/d/p/{{ pid }}">讨论</a></small></h1>
+        <article>
+            <details>
+                <summary>标签</summary>
+                {{ tags | safe }}
+            </details>
+        </article>
+        <article>{{ desc | safe }}</article>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+        <script src="/static/render-math.js"></script>
+        <script src="/static/tags.js"></script>
+    </body>
+</html>

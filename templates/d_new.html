@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>新建讨论 - GRAB</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>新建讨论</h1>
+        <article>
+            <form action="/api/d/new" method="post">
+                <input name="title" type="text" placeholder="输入标题" class="fill-width">
+                <textarea name="post" type="text" placeholder="输入内容" class="fill-width">{{ content }}</textarea>
+                <button type="submit">提交</button>
+            </form>
+        </article>
+    </body>
+</html>

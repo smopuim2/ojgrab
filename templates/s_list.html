@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>抓取状态 - GRAB</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>抓取状态</h1>
+        <article>
+            <span>出现次数：</span>
+            <input type="text" id="word" placeholder="regexp">
+            <button onclick="query()">查询</button>
+            <span id="result"></span>
+            <script>
+                function query(){
+                    let word=document.getElementById('word').value;
+                    let cnt=[...document.body.innerText.matchAll(word)].length;
+                    document.getElementById("result").innerText=`出现了 ${cnt} 次`;
+                }
+            </script>
+        </article>
+        <article>
+            {% for i in status %}
+            {% if i.ok %}
+            <div class="item green">
+                <span>{{ i.desc }}</span>
+            </div>
+            {% else %}
+            <div class="item red">
+                <span>{{ i.desc }}</span>
+                <pre>{{ i.err }}</pre>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </article>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>讨论列表 - GRAB</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>讨论列表&emsp;<small><a href="/d/new">新建</a></small></h1>
+        <article>
+            {% for disc in discs %}
+            <div class="item">
+                <a href="/d/{{ disc.did }}">{{ disc.title }}</a>
+            </div>
+            {% endfor %}
+        </article>
+    </body>
+</html>
