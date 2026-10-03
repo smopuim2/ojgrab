@@ -16,5 +16,5 @@ uvicorn main:app --port 5000
 
 ## 注意
 
-本项目最初为校内平台（[Lyrio](/lyrio-dev/lyrio)魔改）制作，未在其它 OJ 验证。
+本项目最初为校内平台（[Lyrio](https://github.com/lyrio-dev/lyrio)魔改）制作，未在其它 OJ 验证。  
 不同的 OJ 有不同的架构。如果发现题目抓取功能无法使用，可以检查 `grab.py` 。
